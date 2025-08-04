@@ -109,7 +109,7 @@ Key achievements are the most important part of your resume.
 
 ## License
 
-[MIT](https://github.com/engmaryamameen/cv_maker/blob/main/LICENSE.md)
+[MIT](https://github.com/maryamameen34/cv_maker/blob/main/LICENSE.md)
 
 ## Contributing
 
@@ -119,4 +119,4 @@ Please make sure to update tests as appropriate.
 
 ## Authors and acknowledgment
 
-- [Saurav Hathi](https://github.com/sauravhathi)
+- [Maryam Ameen](https://github.com/maryamameen34)
