@@ -1,9 +1,9 @@
 import Head from "next/head";
 
 export default function Meta({ title, keywords, description }) {
-    const homepage = "https://atsresume.vercel.app/";
-    const logo = "https://atsresume.vercel.app/assets/logo.png";
-    const fevicon = "https://atsresume.vercel.app/assets/favicon.ico";
+    const homepage = "https://cv-maker-eight-red.vercel.app/";
+    const logo = "https://cv-maker-eight-red.vercel.app/assets/logo.png";
+    const fevicon = "https://cv-maker-eight-red.vercel.app/assets/favicon.ico";
 
     function isiteJsonLd() {
         return {
@@ -14,23 +14,23 @@ export default function Meta({ title, keywords, description }) {
                 "logo": ${logo},
                 "contactPoint": {
                     "@type": "ContactPoint",
-                    "telephone": "+91 9999999999",
+                    "telephone": "+92 300 1234567",
                     "contactType": "customer service"
                 },
                 "image": ${logo},
                 "description": ${description},
-                "founder": "Saurav Hathi",
-                "foundingDate": "2023",
-                "foundingLocation": "IN",
-                "email": "xyz@gmail.com",
-                "telephone": "+91 9999999999",
-                "areaServed": "IN",
+                "founder": "Maryam Ameen",
+                "foundingDate": "2024",
+                "foundingLocation": "PK",
+                "email": "maryamshehzadi768@gmail.com",
+                "telephone": "+92 300 1234567",
+                "areaServed": "PK",
                 "keywords": ${keywords},
                 "mainEntityOfPage": ${homepage},
                 "knowsAbout": ${keywords},
-                "knowsLanguage": "English",
-                "memberOf": "Saurav Hathi",
-                "owns": "Saurav Hathi",
+                "knowsLanguage": "English, Urdu",
+                "memberOf": "Maryam Ameen",
+                "owns": "Maryam Ameen",
                 "publishingPrinciples": ${homepage},
                 "slogan": "Get hired with an ATS-optimized resume"
             }`
@@ -47,7 +47,7 @@ export default function Meta({ title, keywords, description }) {
             <link rel="icon" href={fevicon} />
             <title>{title}</title>
             <meta type="copyright" content="ATSResume" />
-            <meta type="author" content="Saurav Hathi" />
+            <meta type="author" content="Maryam Ameen" />
             {/* Open Graph */}
             <meta property="og:type" content="website" />
             <meta property="og:url" content={homepage} />

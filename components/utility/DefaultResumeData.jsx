@@ -1,57 +1,49 @@
 const DefaultResumeData = {
-  name: "MARCUS HALL",
-  position: "Developer",
-  contactInformation: "+1-555-0100",
-  email: "beddylea@gmail.com",
-  address: "San Francisco, CA",
+  name: "MARYAM AMEEN",
+  position: "Full Stack Developer",
+  contactInformation: "+92-300-1234567",
+  email: "maryamshehzadi768@gmail.com",
+  address: "Pakistan",
   profilePicture: "",
   socialMedia: [
     {
       socialMedia: "Github",
-      link: "github.com//bedivere-lea",
+      link: "github.com/maryamameen34",
     },
     {
       socialMedia: "LinkedIn",
-      link: "linkedin.com/in/bedivere-lea",
+      link: "linkedin.com/in/maryam-ameen",
     },
     {
       socialMedia: "Website",
-      link: "bedivere-lea.github.io",
+      link: "maryamameen34.github.io",
     },
   ],
-  summary: "Resourceful Developer with 11 years of experience in designing and developing user interfaces, testing and training employees. Skilled at utilizing a wide variety of tools and programs to provide effective applications.",
+  summary: "Passionate Full Stack Developer with expertise in modern web technologies. Skilled in creating responsive, user-friendly applications using React, Node.js, and various frontend/backend technologies. Committed to writing clean, maintainable code and delivering exceptional user experiences.",
   education: [
     {
       "school": "Bachelor of Computer Science",
-      "degree": "New York University",
-      "startYear": "2020-08-20",
-      "endYear": "2024-07-01"
+      "degree": "University of Engineering and Technology",
+      "startYear": "2020-09-01",
+      "endYear": "2024-06-30"
     },
   ],
   workExperience: [
     {
-      "company": "Torph TTC",
-      "position": "Developer",
-      "description": "Torph TTC is a global software company that offers user interface UI development tools and components for a range of developer applications across all platforms.",
-      "keyAchievements": "Created and maintained 10 web applications for numerous national and foreign clients.\nEnsured that the user interfaces and user experience of the software applications developed by the team met at least 80% of users expectations.\nCreated and analyzed 500 unit test cases.\nDeveloped python scripts to automate image's noise-reduction process which helped improve research analysis time by 40%.\nEstablished and lead a team of 10 people; covering every key role in the early stages.",
-      "startYear": "2023-02-16",
-      "endYear": "2023-02-21"
+      "company": "Tech Solutions Inc",
+      "position": "Full Stack Developer",
+      "description": "A leading technology company specializing in web and mobile application development.",
+      "keyAchievements": "Developed and maintained 5+ web applications using React, Node.js, and MongoDB.\nImproved application performance by 40% through code optimization and database query improvements.\nCollaborated with cross-functional teams to deliver high-quality software solutions.\nImplemented responsive design principles ensuring applications work seamlessly across all devices.\nMentored junior developers and conducted code reviews to maintain code quality standards.",
+      "startYear": "2023-01-15",
+      "endYear": "2024-06-30"
     },
     {
-      "company": "Reilty Group",
-      "position": "Front End Web Developer",
-      "description": "Reilty Group is an industry-leading provider of online gambling software and solutions.",
-      "keyAchievements": "Increased by 35% the reach of users to the platform, over the installation of the web platform in mobile devices.\nDelivered 30 web solutions.\nReplaced 1 full-time web developer under part-time employment achieving a productivity gain of over 60% as measured by working hours.\nWorked with more than 4 different teams at different points of time and provided end-to-end solutions for clients.",
-      "startYear": "2023-02-22",
-      "endYear": "2023-03-09"
-    },
-    {
-      "company": "HellX",
-      "position": "Python Developer",
-      "description": "Heller is a Software Editor specialized in logistics management.",
-      "keyAchievements": "Developed several automation systems - saved over $50,000 annually.\nJoined the team as #10 employee as a developer working directly with the biggest customers.\nInvolved in coding as per the requirement, delivered well ahead of time which saved project cost by 20%.\nReduced database size by nearly 50% and improved its performance by 20%.\nDelivery time of good reduced by 50%.",
-      "startYear": "2023-02-22",
-      "endYear": "2023-03-09"
+      "company": "Digital Innovations",
+      "position": "Frontend Developer",
+      "description": "A startup focused on creating innovative digital solutions for modern businesses.",
+      "keyAchievements": "Built responsive user interfaces using React.js and modern CSS frameworks.\nReduced page load times by 30% through optimization techniques.\nWorked closely with UX/UI designers to implement pixel-perfect designs.\nIntegrated REST APIs and implemented state management using Redux.\nParticipated in agile development processes and sprint planning.",
+      "startYear": "2022-06-01",
+      "endYear": "2022-12-31"
     }
   ],
   projects: [],
@@ -59,29 +51,29 @@ const DefaultResumeData = {
     {
       title: "Technical Skills",
       skills: [
-        "JavaScript", "Python", "Web Services", "C++", "HTML5", "CSS", "SQL", "User Interface", "Creativity"
+        "React.js", "Node.js", "JavaScript", "TypeScript", "HTML5", "CSS3", "MongoDB", "Express.js", "Git", "REST APIs"
       ]
     },
     {
       title: "Soft Skills",
       skills: [
-        "Collaboration", "Problem-solving", "Communication", "Time management", "Result-oriented"
+        "Team Collaboration", "Problem-solving", "Communication", "Time Management", "Adaptability"
       ]
     },
     {
       title: "Additional Skills",
       skills: [
-        "Public Speaking", "Writing", "Research"
+        "UI/UX Design", "Agile Development", "Code Review", "Technical Documentation"
       ] 
     }
   ],
   languages: [
     "English",
-    "Hindi",
+    "Urdu",
   ],
   certifications: [
-    "Certified Web Professional-Web Developer",
-    "Java Development Certified Professional",
+    "Full Stack Web Development Certification",
+    "React.js Advanced Certification",
   ],
 };
 

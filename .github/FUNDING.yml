@@ -10,6 +10,7 @@ issuehunt: # Replace with a single IssueHunt username
 otechie: # Replace with a single Otechie username
 lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
 custom:
+  - https://github.com/maryamameen34
   - maryamshehzadi768@gmail.com
   - https://www.linkedin.com/in/maryam-ameen/
   - https://www.upwork.com/freelancers/~0101f3e2fcf90a402c

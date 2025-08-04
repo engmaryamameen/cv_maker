@@ -1,7 +1,10 @@
 {
-  "name": "atsresume",
-  "version": "0.1.0",
+  "name": "cv-maker",
+  "version": "1.0.0",
   "private": true,
+  "description": "A modern, responsive resume builder built with Next.js and React",
+  "author": "Maryam Ameen <maryamshehzadi768@gmail.com>",
+  "homepage": "https://cv-maker-eight-red.vercel.app/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

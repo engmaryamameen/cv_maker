@@ -1,33 +1,86 @@
-# ATSResume
+# 🚀 CV Maker - Professional Resume Builder
 
-A cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers.
+A modern, responsive resume builder that helps job seekers create professional, ATS-friendly resumes in minutes. Built with Next.js and React, this application provides an intuitive interface for crafting compelling resumes that stand out to employers and pass through Applicant Tracking Systems (ATS).
 
-## Demo
+## ✨ Features
 
-#### [https://atsresume.vercel.app/](https://atsresume.vercel.app/)
+- **📝 Real-time Preview**: See your resume updates instantly as you type
+- **🎨 Professional Templates**: Clean, modern design that looks great on any device
+- **📱 Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **💾 Save & Load**: Save your progress and load it later
+- **📄 PDF Export**: Download your resume as a professional PDF
+- **🔍 ATS Optimized**: Designed to pass through Applicant Tracking Systems
+- **⚡ Fast & Lightweight**: Built with modern technologies for optimal performance
+
+## 🌐 Live Demo
+
+**[https://cv-maker-eight-red.vercel.app/](https://cv-maker-eight-red.vercel.app/)**
+
+![CV Maker Demo](https://user-images.githubusercontent.com/61316762/218017511-fbbaa7da-6154-449f-9e46-8de45b0e6c29.png)
 ![image](https://user-images.githubusercontent.com/61316762/218017511-fbbaa7da-6154-449f-9e46-8de45b0e6c29.png)
 
-### Resume Score
-#### https://www.resumego.net/resume-checker/
-![image](https://user-images.githubusercontent.com/61316762/218143206-f0e5e764-52bc-4c25-84f2-6b2fff00cd4b.png)
+## 🛠️ Built With
 
-## Change Log
+- **[Next.js](https://nextjs.org/)** - React framework for production
+- **[React](https://reactjs.org/)** - JavaScript library for building user interfaces
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)** - Drag and drop functionality
+- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
 
-- Drag and drop sections to reorder them in the resume(Work Experience, Projects, Skills)
+## 📋 Resume Sections
 
-## Sections
+The CV Maker includes all essential sections for a comprehensive resume:
 
-- [Personal Information](#personal-information)
-- [Social Media](#social-media)
-- [Summary](#summary)
-- [Education](#education)
-- [Work Experience](#work-experience)
-- [Projects](#projects)
-- [Technical Skills](#technical-skills)
-- [Soft Skills](#soft-skills)
-- [Languages](#languages)
-- [Additional Skills](#additional-skills)
-- [Certifications](#certifications)
+- **👤 Personal Information** - Name, contact details, and profile picture
+- **📱 Social Media** - GitHub, LinkedIn, and other professional links
+- **📝 Summary** - Professional summary and career objectives
+- **🎓 Education** - Academic background and qualifications
+- **💼 Work Experience** - Professional experience with achievements
+- **🚀 Projects** - Portfolio projects and technical work
+- **⚙️ Technical Skills** - Programming languages and technologies
+- **🤝 Soft Skills** - Interpersonal and professional skills
+- **🌍 Languages** - Language proficiencies
+- **📚 Additional Skills** - Other relevant skills and competencies
+- **🏆 Certifications** - Professional certifications and achievements
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/maryamameen34/cv_maker.git
+   cd cv_maker
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Run the development server**
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📦 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
 ## Personal Information
 
@@ -107,16 +160,33 @@ Key achievements are the most important part of your resume.
 
 ![image](https://user-images.githubusercontent.com/61316762/218244267-c46f5d02-b742-4b4c-ba7e-ae1bfb1e04d4.png)
 
-## License
+## 🤝 Contributing
 
-[MIT](https://github.com/maryamameen34/cv_maker/blob/main/LICENSE.md)
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
 
-## Contributing
+### How to Contribute
 
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-Please make sure to update tests as appropriate.
+## 📄 License
 
-## Authors and acknowledgment
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
-- [Maryam Ameen](https://github.com/maryamameen34)
+## 👩‍💻 Author
+
+**Maryam Ameen**
+
+- **GitHub**: [@maryamameen34](https://github.com/maryamameen34)
+- **LinkedIn**: [Maryam Ameen](https://linkedin.com/in/maryam-ameen)
+- **Email**: maryamshehzadi768@gmail.com
+
+## 🙏 Acknowledgments
+
+- Built with Next.js and React
+- Styled with Tailwind CSS
+- Icons from React Icons
+- Drag and drop functionality from React Beautiful DnD
