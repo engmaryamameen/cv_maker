@@ -115,6 +115,16 @@
     font-weight: 700 !important;
 }
 
+@keyframes highlightMenuFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+[data-floating-ui-portal] > div {
+    opacity: 0;
+    animation: highlightMenuFadeIn 0.15s ease-in 0.05s forwards;
+}
+
 @media print {
     .exclude-print {
         display: none;

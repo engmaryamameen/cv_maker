@@ -3,7 +3,7 @@ import Language from "../components/form/Language";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
 import LoadUnload from "../components/form/LoadUnload";
-import Preview from "../components/preview/Preview";
+import PreviewPanel from "../components/builder/PreviewPanel";
 import SocialMedia from "../components/form/SocialMedia";
 import WorkExperience from "../components/form/WorkExperience";
 import Skill from "../components/form/Skill";
@@ -56,7 +56,7 @@ function BuilderContent() {
             <Certification />
           </form>
         )}
-        <Preview />
+        <PreviewPanel />
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
       <Print />
