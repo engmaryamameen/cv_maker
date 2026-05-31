@@ -34,8 +34,7 @@ const MinimalTemplate = ({ resumeData }) => {
         <div
           style={{
             width: "40px",
-            height: "2px",
-            backgroundColor: "var(--cv-primary)",
+            borderBottom: "2px solid var(--cv-primary)",
             margin: "6px auto",
           }}
         />
