@@ -41,6 +41,12 @@ A modern resume builder that helps you create professional, ATS-friendly resumes
 
 All templates support theme colors, font switching, and PDF export.
 
+## ATS Score
+
+Resumes built with CV Maker are optimized for Applicant Tracking Systems. Check your resume score at <a href="https://www.resumego.net/resume-checker/" target="_blank">ResumeGo ATS Checker</a>.
+
+![ATS Score — 100](screenshots/ats-score.png)
+
 ## Getting Started
 
 ### Prerequisites
