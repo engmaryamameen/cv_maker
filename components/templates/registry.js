@@ -1,5 +1,6 @@
 import ClassicTemplate from "./classic/ClassicTemplate";
 import MinimalTemplate from "./minimal/MinimalTemplate";
+import ModernTemplate from "./modern/ModernTemplate";
 
 const templates = {
   classic: {
@@ -11,6 +12,11 @@ const templates = {
     name: "Minimal",
     description: "Clean single-column layout",
     component: MinimalTemplate,
+  },
+  modern: {
+    name: "Modern",
+    description: "Colored header with skill tags",
+    component: ModernTemplate,
   },
 };
 

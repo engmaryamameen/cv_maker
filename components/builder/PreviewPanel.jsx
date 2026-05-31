@@ -120,8 +120,8 @@ const PreviewPanel = () => {
       <A4Wrapper>
         <HighlightMenu
           styles={{
-            borderColor: theme.colors.toolbar,
-            backgroundColor: theme.colors.toolbar,
+            borderColor: "#374151",
+            backgroundColor: "#374151",
             boxShadow: "0px 5px 5px 0px rgba(0, 0, 0, 0.15)",
             zIndex: 10,
             borderRadius: "5px",
