@@ -13,7 +13,7 @@ import { ResumeContext } from "../../context/ResumeContext";
 import { A4Wrapper } from "../templates/shared";
 import { HighlightMenu } from "react-highlight-menu";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
-import ClassicTemplate from "../templates/classic/ClassicTemplate";
+import { templates, DEFAULT_TEMPLATE } from "../templates/registry";
 import dynamic from "next/dynamic";
 
 const DragDropContext = dynamic(
@@ -32,7 +32,9 @@ const MenuButton = ({ title, icon, onClick }) => (
 );
 
 const PreviewPanel = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
+  const { resumeData, setResumeData, activeTemplate } = useContext(ResumeContext);
+  const entry = templates[activeTemplate] || templates[DEFAULT_TEMPLATE];
+  const TemplateComponent = entry.component;
 
   const onDragEnd = (result) => {
     const { destination, source } = result;
@@ -165,7 +167,7 @@ const PreviewPanel = () => {
           )}
         />
         <DragDropContext onDragEnd={onDragEnd}>
-          <ClassicTemplate resumeData={resumeData} />
+          <TemplateComponent resumeData={resumeData} />
         </DragDropContext>
       </A4Wrapper>
     </div>
