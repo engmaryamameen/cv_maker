@@ -1,10 +1,42 @@
 const themes = {
   default: {
-    name: "Default",
+    name: "Fuchsia",
     colors: {
-      primary: "#a21caf",       // fuchsia-700 — profile border, accent color
-      sectionBorder: "#d1d5db", // gray-300 — section title underlines
-      toolbar: "#C026D3",       // highlight menu background
+      primary: "#a21caf",
+      sectionBorder: "#d1d5db",
+      toolbar: "#C026D3",
+    },
+  },
+  blue: {
+    name: "Blue",
+    colors: {
+      primary: "#1d4ed8",
+      sectionBorder: "#d1d5db",
+      toolbar: "#2563eb",
+    },
+  },
+  emerald: {
+    name: "Emerald",
+    colors: {
+      primary: "#047857",
+      sectionBorder: "#d1d5db",
+      toolbar: "#059669",
+    },
+  },
+  slate: {
+    name: "Slate",
+    colors: {
+      primary: "#334155",
+      sectionBorder: "#cbd5e1",
+      toolbar: "#475569",
+    },
+  },
+  rose: {
+    name: "Rose",
+    colors: {
+      primary: "#be123c",
+      sectionBorder: "#d1d5db",
+      toolbar: "#e11d48",
     },
   },
 };
