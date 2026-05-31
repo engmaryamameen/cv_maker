@@ -91,7 +91,7 @@ const MinimalTemplate = ({ resumeData }) => {
                   <ul className="list-disc ul-padding text-xs mt-0.5">
                     {item.keyAchievements.split("\n").map((achievement, i) => (
                       <li key={i}>
-                        <div dangerouslySetInnerHTML={{ __html: achievement }} />
+                        <div dangerouslySetInnerHTML={{ __html: achievement }} contentEditable />
                       </li>
                     ))}
                   </ul>
@@ -163,7 +163,7 @@ const MinimalTemplate = ({ resumeData }) => {
                   <ul className="list-disc ul-padding text-xs mt-0.5">
                     {item.keyAchievements.split("\n").map((achievement, i) => (
                       <li key={i}>
-                        <div dangerouslySetInnerHTML={{ __html: achievement }} />
+                        <div dangerouslySetInnerHTML={{ __html: achievement }} contentEditable />
                       </li>
                     ))}
                   </ul>

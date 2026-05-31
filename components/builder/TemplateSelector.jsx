@@ -6,18 +6,23 @@ const TemplateSelector = () => {
   const { activeTemplate, setActiveTemplate } = useContext(ResumeContext);
 
   return (
-    <div className="flex gap-2 mb-3 exclude-print">
+    <div className="flex gap-2">
       {Object.entries(templates).map(([id, template]) => (
         <button
           key={id}
           onClick={() => setActiveTemplate(id)}
-          className={`px-3 py-1.5 text-sm rounded border transition-colors ${
+          className={`flex flex-col items-start px-3 py-2 rounded-lg border-2 transition-colors text-left ${
             activeTemplate === id
-              ? "bg-fuchsia-600 text-white border-fuchsia-600"
-              : "bg-white text-gray-700 border-gray-300 hover:border-fuchsia-400"
+              ? "border-fuchsia-600 bg-fuchsia-50"
+              : "border-gray-200 bg-white hover:border-gray-300"
           }`}
         >
-          {template.name}
+          <span className={`text-sm font-semibold ${
+            activeTemplate === id ? "text-fuchsia-700" : "text-gray-800"
+          }`}>
+            {template.name}
+          </span>
+          <span className="text-xs text-gray-500">{template.description}</span>
         </button>
       ))}
     </div>

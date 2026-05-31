@@ -7,7 +7,7 @@ const WorkExperienceSection = ({ workExperience }) => {
 
   return (
     <div>
-      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)" }}>
+      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)", color: "var(--cv-primary)" }}>
         Work Experience
       </h2>
       {workExperience.map((item, index) => (

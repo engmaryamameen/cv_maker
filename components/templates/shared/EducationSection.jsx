@@ -6,7 +6,7 @@ const EducationSection = ({ education }) => {
 
   return (
     <div className="mb-1">
-      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)" }}>
+      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)", color: "var(--cv-primary)" }}>
         Education
       </h2>
       {education.map((item, index) => (
