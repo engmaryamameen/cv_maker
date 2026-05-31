@@ -115,9 +115,10 @@ const PreviewPanel = () => {
             zIndex: 10,
             borderRadius: "5px",
             padding: "3px",
-            transition: "all 0.15s ease-out",
           }}
-          target="body"
+          allowedPlacements={["top", "bottom"]}
+          offset={8}
+          target=".preview"
           menu={() => (
             <>
               <MenuButton
