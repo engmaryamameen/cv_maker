@@ -4,7 +4,7 @@
 
 A modern resume builder that helps you create professional, ATS-friendly resumes with live preview, multiple templates, theme and font customization, and one-click PDF export.
 
-**Live Demo**: [cv-maker-eight-red.vercel.app](https://cv-maker-eight-red.vercel.app/)
+**Live Demo**: <a href="https://cv-maker-eight-red.vercel.app/" target="_blank">cv-maker-eight-red.vercel.app</a>
 
 ---
 
@@ -129,7 +129,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 **Maryam Ameen**
 
-- [GitHub](https://github.com/engmaryamameen)
-- [LinkedIn](https://www.linkedin.com/in/maryam-ameen)
-- [Email](mailto:eng.maryamameen@gmail.com)
-- [Upwork](https://www.upwork.com/freelancers/~maryamameen)
+- <a href="https://github.com/engmaryamameen" target="_blank">GitHub</a>
+- <a href="https://www.linkedin.com/in/maryam-ameen" target="_blank">LinkedIn</a>
+- <a href="mailto:eng.maryamameen@gmail.com">eng.maryamameen@gmail.com</a>
+- <a href="https://www.upwork.com/freelancers/~maryamameen" target="_blank">Upwork</a>
