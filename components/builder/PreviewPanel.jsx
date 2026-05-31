@@ -15,6 +15,8 @@ import { HighlightMenu } from "react-highlight-menu";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { templates, DEFAULT_TEMPLATE } from "../templates/registry";
 import { themes, DEFAULT_THEME, getThemeCSSVariables } from "../templates/themes";
+import { fonts, DEFAULT_FONT, getGoogleFontsURL } from "../templates/fonts";
+import Head from "next/head";
 import dynamic from "next/dynamic";
 
 const DragDropContext = dynamic(
@@ -33,11 +35,13 @@ const MenuButton = ({ title, icon, onClick }) => (
 );
 
 const PreviewPanel = () => {
-  const { resumeData, setResumeData, activeTemplate, activeTheme } = useContext(ResumeContext);
+  const { resumeData, setResumeData, activeTemplate, activeTheme, activeFont } = useContext(ResumeContext);
   const entry = templates[activeTemplate] || templates[DEFAULT_TEMPLATE];
   const TemplateComponent = entry.component;
   const theme = themes[activeTheme] || themes[DEFAULT_THEME];
   const themeVars = getThemeCSSVariables(theme);
+  const font = fonts.find((f) => f.id === activeFont) || fonts[0];
+  const googleFontsURL = getGoogleFontsURL(activeFont);
 
   const onDragEnd = (result) => {
     const { destination, source } = result;
@@ -110,7 +114,16 @@ const PreviewPanel = () => {
   useKeyboardShortcut("u", true, toggleUnderline);
 
   return (
-    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-[calc(100vh-52px)]" style={themeVars}>
+    <>
+      {googleFontsURL && (
+        <Head>
+          <link href={googleFontsURL} rel="stylesheet" />
+        </Head>
+      )}
+      <div
+        className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-[calc(100vh-52px)]"
+        style={{ ...themeVars, fontFamily: font.family }}
+      >
       <A4Wrapper>
         <HighlightMenu
           styles={{
@@ -124,7 +137,7 @@ const PreviewPanel = () => {
           }}
           allowedPlacements={["top", "bottom"]}
           offset={8}
-          target=".preview"
+          target="[contenteditable]"
           menu={() => (
             <>
               <MenuButton
@@ -175,6 +188,7 @@ const PreviewPanel = () => {
         </DragDropContext>
       </A4Wrapper>
     </div>
+    </>
   );
 };
 

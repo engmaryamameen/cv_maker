@@ -3,6 +3,7 @@ import { FaCloudUploadAlt, FaCloudDownloadAlt } from "react-icons/fa";
 import { ResumeContext } from "../../context/ResumeContext";
 import TemplateSelector from "./TemplateSelector";
 import ThemeSelector from "./ThemeSelector";
+import FontSelector from "./FontSelector";
 
 const BuilderHeader = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -62,8 +63,11 @@ const BuilderHeader = () => {
         {/* Center — Template Selector */}
         <TemplateSelector />
 
-        {/* Right — Theme Selector */}
-        <ThemeSelector />
+        {/* Right — Font + Theme */}
+        <div className="flex items-center gap-3">
+          <FontSelector />
+          <ThemeSelector />
+        </div>
       </div>
     </header>
   );

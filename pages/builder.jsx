@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Language from "../components/form/Language";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
@@ -33,6 +33,10 @@ function BuilderContent() {
   const { resumeData, activeTheme } = useContext(ResumeContext);
   const [formClose, setFormClose] = useState(false);
   const theme = themes[activeTheme] || themes[DEFAULT_THEME];
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--cv-primary", theme.colors.primary);
+  }, [theme.colors.primary]);
 
   return (
     <div style={{ "--cv-primary": theme.colors.primary }}>
