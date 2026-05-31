@@ -1,4 +1,5 @@
 import FormButton from "./FormButton";
+import MonthYearPicker from "./MonthYearPicker";
 import React, { useContext } from "react";
 import { ResumeContext } from "../../context/ResumeContext";
 
@@ -77,23 +78,20 @@ const Projects = () => {
           />
           <div className="flex gap-2">
             <div className="flex-1">
-              <label className="field-label">Start Date</label>
-              <input
-                type="date"
+              <MonthYearPicker
+                label="Start Date"
                 name="startYear"
-                className="other-input w-full"
                 value={project.startYear}
                 onChange={(e) => handleProjects(e, index)}
               />
             </div>
             <div className="flex-1">
-              <label className="field-label">End Date</label>
-              <input
-                type="date"
+              <MonthYearPicker
+                label="End Date"
                 name="endYear"
-                className="other-input w-full"
                 value={project.endYear}
                 onChange={(e) => handleProjects(e, index)}
+                showPresent
               />
             </div>
           </div>
