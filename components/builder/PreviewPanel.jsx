@@ -15,8 +15,6 @@ import { HighlightMenu } from "react-highlight-menu";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { templates, DEFAULT_TEMPLATE } from "../templates/registry";
 import { themes, DEFAULT_THEME, getThemeCSSVariables } from "../templates/themes";
-import TemplateSelector from "./TemplateSelector";
-import ThemeSelector from "./ThemeSelector";
 import dynamic from "next/dynamic";
 
 const DragDropContext = dynamic(
@@ -112,11 +110,7 @@ const PreviewPanel = () => {
   useKeyboardShortcut("u", true, toggleUnderline);
 
   return (
-    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen" style={themeVars}>
-      <div className="flex items-center justify-between mb-3 exclude-print">
-        <TemplateSelector />
-        <ThemeSelector />
-      </div>
+    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-[calc(100vh-52px)]" style={themeVars}>
       <A4Wrapper>
         <HighlightMenu
           styles={{
