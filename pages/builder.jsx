@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Language from "../components/form/Language";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
-import LoadUnload from "../components/form/LoadUnload";
+import BuilderHeader from "../components/builder/BuilderHeader";
 import PreviewPanel from "../components/builder/PreviewPanel";
 import SocialMedia from "../components/form/SocialMedia";
 import WorkExperience from "../components/form/WorkExperience";
@@ -14,6 +14,7 @@ import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 import Certification from "../components/form/certification";
 import { ResumeContext, ResumeProvider } from "../context/ResumeContext";
+import { themes, DEFAULT_THEME } from "../components/templates/themes";
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
@@ -29,20 +30,25 @@ export default function Builder(props) {
 }
 
 function BuilderContent() {
-  const { resumeData } = useContext(ResumeContext);
+  const { resumeData, activeTheme } = useContext(ResumeContext);
   const [formClose, setFormClose] = useState(false);
+  const theme = themes[activeTheme] || themes[DEFAULT_THEME];
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--cv-primary", theme.colors.primary);
+  }, [theme.colors.primary]);
 
   return (
-    <>
+    <div style={{ "--cv-primary": theme.colors.primary }}>
       <Meta
         title="ATSResume | Get hired with an ATS-optimized resume"
-        description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
-        keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker"
+        description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes."
+        keywords="ATS-friendly, Resume optimization, resume builder, free resume builder, resume maker"
       />
-      <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
+      <BuilderHeader />
+      <div className="f-col gap-4 md:flex-row justify-evenly max-w-[1600px] md:mx-auto md:h-[calc(100vh-52px)] mt-2 mb-16">
         {!formClose && (
-          <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
-            <LoadUnload />
+          <form className="p-4 bg-gray-100 exclude-print md:max-w-[40%] md:h-full md:overflow-y-scroll">
             <PersonalInformation />
             <SocialMedia />
             <Summary />
@@ -60,6 +66,6 @@ function BuilderContent() {
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
       <Print />
-    </>
+    </div>
   );
 }
