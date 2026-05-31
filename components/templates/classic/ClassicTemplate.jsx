@@ -78,7 +78,8 @@ const ClassicTemplate = ({ resumeData }) => {
               {(provided) => (
                 <div {...provided.droppableProps} ref={provided.innerRef}>
                   <h2
-                    className="section-title mb-1 border-b-2 border-gray-300 editable"
+                    className="section-title mb-1 border-b-2 editable"
+                    style={{ borderColor: "var(--cv-section-border)" }}
                     contentEditable
                     suppressContentEditableWarning
                   >
@@ -171,7 +172,8 @@ const ClassicTemplate = ({ resumeData }) => {
               {(provided) => (
                 <div {...provided.droppableProps} ref={provided.innerRef}>
                   <h2
-                    className="section-title mb-1 border-b-2 border-gray-300 editable"
+                    className="section-title mb-1 border-b-2 editable"
+                    style={{ borderColor: "var(--cv-section-border)" }}
                     contentEditable
                     suppressContentEditableWarning
                   >

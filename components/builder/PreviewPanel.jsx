@@ -14,6 +14,7 @@ import { A4Wrapper } from "../templates/shared";
 import { HighlightMenu } from "react-highlight-menu";
 import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 import { templates, DEFAULT_TEMPLATE } from "../templates/registry";
+import { themes, DEFAULT_THEME, getThemeCSSVariables } from "../templates/themes";
 import dynamic from "next/dynamic";
 
 const DragDropContext = dynamic(
@@ -32,9 +33,11 @@ const MenuButton = ({ title, icon, onClick }) => (
 );
 
 const PreviewPanel = () => {
-  const { resumeData, setResumeData, activeTemplate } = useContext(ResumeContext);
+  const { resumeData, setResumeData, activeTemplate, activeTheme } = useContext(ResumeContext);
   const entry = templates[activeTemplate] || templates[DEFAULT_TEMPLATE];
   const TemplateComponent = entry.component;
+  const theme = themes[activeTheme] || themes[DEFAULT_THEME];
+  const themeVars = getThemeCSSVariables(theme);
 
   const onDragEnd = (result) => {
     const { destination, source } = result;
@@ -107,12 +110,12 @@ const PreviewPanel = () => {
   useKeyboardShortcut("u", true, toggleUnderline);
 
   return (
-    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
+    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen" style={themeVars}>
       <A4Wrapper>
         <HighlightMenu
           styles={{
-            borderColor: "#C026D3",
-            backgroundColor: "#C026D3",
+            borderColor: theme.colors.toolbar,
+            backgroundColor: theme.colors.toolbar,
             boxShadow: "0px 5px 5px 0px rgba(0, 0, 0, 0.15)",
             zIndex: 10,
             borderRadius: "5px",

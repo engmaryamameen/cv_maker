@@ -34,7 +34,7 @@ const HeaderSection = ({
   return (
     <div className="f-col items-center mb-1">
       {profilePicture && profilePicture.length > 0 && (
-        <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-fuchsia-700">
+        <div className="w-24 h-24 rounded-full overflow-hidden border-2" style={{ borderColor: "var(--cv-primary)" }}>
           <Image
             src={profilePicture}
             alt="profile"

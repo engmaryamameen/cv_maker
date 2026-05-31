@@ -1,12 +1,14 @@
 import React, { createContext, useState } from "react";
 import DefaultResumeData from "../components/utility/DefaultResumeData";
 import { DEFAULT_TEMPLATE } from "../components/templates/registry";
+import { DEFAULT_THEME } from "../components/templates/themes";
 
 const ResumeContext = createContext(DefaultResumeData);
 
 function ResumeProvider({ children }) {
   const [resumeData, setResumeData] = useState(DefaultResumeData);
   const [activeTemplate, setActiveTemplate] = useState(DEFAULT_TEMPLATE);
+  const [activeTheme, setActiveTheme] = useState(DEFAULT_THEME);
 
   const handleProfilePicture = (e) => {
     const file = e.target.files[0];
@@ -35,6 +37,8 @@ function ResumeProvider({ children }) {
         handleChange,
         activeTemplate,
         setActiveTemplate,
+        activeTheme,
+        setActiveTheme,
       }}
     >
       {children}

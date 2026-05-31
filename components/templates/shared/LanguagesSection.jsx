@@ -5,7 +5,7 @@ const LanguagesSection = ({ languages }) => {
 
   return (
     <div>
-      <h2 className="section-title mb-1 border-b-2 border-gray-300">
+      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)" }}>
         Languages
       </h2>
       <p className="sub-content">{languages.join(", ")}</p>

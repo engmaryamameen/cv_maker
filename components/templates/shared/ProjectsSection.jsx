@@ -7,7 +7,7 @@ const ProjectsSection = ({ projects }) => {
 
   return (
     <div>
-      <h2 className="section-title mb-1 border-b-2 border-gray-300">
+      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)" }}>
         Projects
       </h2>
       {projects.map((item, index) => (

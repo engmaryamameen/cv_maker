@@ -144,7 +144,7 @@
     }
 
     .preview::after {
-        content: "Created using https://atsresume.vercel.app/";
+        content: "Created using https://cv-maker-eight-red.vercel.app/";
         position: fixed;
         bottom: 0;
         right: 0;

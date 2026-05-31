@@ -5,7 +5,7 @@ const SummarySection = ({ summary }) => {
 
   return (
     <div className="mb-1">
-      <h2 className="section-title mb-1 border-b-2 border-gray-300">
+      <h2 className="section-title mb-1 border-b-2" style={{ borderColor: "var(--cv-section-border)" }}>
         Summary
       </h2>
       <p className="content break-words">{summary}</p>
