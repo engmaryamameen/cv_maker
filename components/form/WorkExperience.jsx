@@ -42,57 +42,63 @@ const WorkExperience = () => {
     <div className="flex-col-gap-2">
       <h2 className="input-title">Work Experience</h2>
       {resumeData.workExperience.map((workExperience, index) => (
-        <div key={index} className="f-col">
+        <div key={index} className="f-col border border-gray-200 rounded-lg p-3 bg-gray-50/50">
+          <label className="field-label">Company</label>
           <input
             type="text"
-            placeholder="Company"
+            placeholder="Acme Technologies"
             name="company"
             className="w-full other-input"
             value={workExperience.company}
             onChange={(e) => handleWorkExperience(e, index)}
           />
+          <label className="field-label">Job Title</label>
           <input
             type="text"
-            placeholder="Job Title"
+            placeholder="Full Stack Developer"
             name="position"
             className="w-full other-input"
             value={workExperience.position}
             onChange={(e) => handleWorkExperience(e, index)}
           />
+          <label className="field-label">Description</label>
           <textarea
-            type="text"
-            placeholder="Description"
+            placeholder="Brief role description..."
             name="description"
-            className="w-full other-input h-32"
+            className="w-full other-input h-20"
             value={workExperience.description}
             maxLength="250"
             onChange={(e) => handleWorkExperience(e, index)}
           />
+          <label className="field-label">Key Achievements (one per line)</label>
           <textarea
-            type="text"
-            placeholder="Key Achievements"
+            placeholder="Developed and maintained 5+ web applications..."
             name="keyAchievements"
-            className="w-full other-input h-40"
+            className="w-full other-input h-32"
             value={workExperience.keyAchievements}
             onChange={(e) => handleWorkExperience(e, index)}
           />
-          <div className="flex-wrap-gap-2">
-            <input
-              type="date"
-              placeholder="Start Year"
-              name="startYear"
-              className="other-input"
-              value={workExperience.startYear}
-              onChange={(e) => handleWorkExperience(e, index)}
-            />
-            <input
-              type="date"
-              placeholder="End Year"
-              name="endYear"
-              className="other-input"
-              value={workExperience.endYear}
-              onChange={(e) => handleWorkExperience(e, index)}
-            />
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <label className="field-label">Start Date</label>
+              <input
+                type="date"
+                name="startYear"
+                className="other-input w-full"
+                value={workExperience.startYear}
+                onChange={(e) => handleWorkExperience(e, index)}
+              />
+            </div>
+            <div className="flex-1">
+              <label className="field-label">End Date</label>
+              <input
+                type="date"
+                name="endYear"
+                className="other-input w-full"
+                value={workExperience.endYear}
+                onChange={(e) => handleWorkExperience(e, index)}
+              />
+            </div>
           </div>
         </div>
       ))}

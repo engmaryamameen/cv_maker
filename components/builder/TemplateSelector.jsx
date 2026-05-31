@@ -8,30 +8,23 @@ const TemplateSelector = () => {
   const theme = themes[activeTheme] || themes[DEFAULT_THEME];
 
   return (
-    <div className="flex gap-2">
+    <div className="flex gap-1.5">
       {Object.entries(templates).map(([id, template]) => (
         <button
           key={id}
           onClick={() => setActiveTemplate(id)}
-          className={`flex flex-col items-start px-3 py-2 rounded-lg border-2 transition-colors text-left ${
-            activeTemplate === id ? "" : "border-gray-200 bg-white hover:border-gray-300"
+          className={`px-3 py-1 rounded-md text-xs font-medium transition-colors ${
+            activeTemplate === id
+              ? "text-white"
+              : "text-gray-600 bg-gray-100 hover:bg-gray-200"
           }`}
           style={
             activeTemplate === id
-              ? {
-                  borderColor: theme.colors.primary,
-                  backgroundColor: `color-mix(in srgb, ${theme.colors.primary} 8%, white)`,
-                }
+              ? { backgroundColor: theme.colors.primary }
               : undefined
           }
         >
-          <span
-            className={`text-sm font-semibold ${activeTemplate !== id ? "text-gray-800" : ""}`}
-            style={activeTemplate === id ? { color: theme.colors.primary } : undefined}
-          >
-            {template.name}
-          </span>
-          <span className="text-xs text-gray-500">{template.description}</span>
+          {template.name}
         </button>
       ))}
     </div>
