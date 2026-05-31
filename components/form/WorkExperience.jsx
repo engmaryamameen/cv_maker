@@ -94,6 +94,7 @@ const WorkExperience = () => {
                 name="endYear"
                 value={workExperience.endYear}
                 onChange={(e) => handleWorkExperience(e, index)}
+                showPresent
               />
             </div>
           </div>

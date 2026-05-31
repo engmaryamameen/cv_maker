@@ -11,10 +11,10 @@ const currentMonth = now.getMonth();
 const currentYear = now.getFullYear();
 
 function parseValue(value) {
-  if (!value) return { month: null, year: null };
+  if (!value || value === "present") return { month: null, year: null, isPresent: value === "present" };
   const d = new Date(value);
-  if (isNaN(d.getTime())) return { month: null, year: null };
-  return { month: d.getMonth(), year: d.getFullYear() };
+  if (isNaN(d.getTime())) return { month: null, year: null, isPresent: false };
+  return { month: d.getMonth(), year: d.getFullYear(), isPresent: false };
 }
 
 function toDateString(month, year) {
@@ -23,17 +23,19 @@ function toDateString(month, year) {
   return `${year}-${m}-01`;
 }
 
-const MonthYearPicker = ({ value, onChange, name, label }) => {
+const MonthYearPicker = ({ value, onChange, name, label, showPresent = false }) => {
   const parsed = parseValue(value);
   const [open, setOpen] = useState(false);
   const [month, setMonth] = useState(parsed.month);
   const [year, setYear] = useState(parsed.year ?? currentYear);
+  const [isPresent, setIsPresent] = useState(parsed.isPresent);
   const ref = useRef(null);
 
   useEffect(() => {
     const p = parseValue(value);
     setMonth(p.month);
     setYear(p.year ?? currentYear);
+    setIsPresent(p.isPresent);
   }, [value]);
 
   useEffect(() => {
@@ -44,9 +46,8 @@ const MonthYearPicker = ({ value, onChange, name, label }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const emitChange = (newMonth, newYear) => {
-    const dateStr = toDateString(newMonth, newYear);
-    onChange({ target: { name, value: dateStr } });
+  const emitChange = (val) => {
+    onChange({ target: { name, value: val } });
   };
 
   const stepYear = (dir) => {
@@ -56,20 +57,30 @@ const MonthYearPicker = ({ value, onChange, name, label }) => {
     if (month !== null) {
       const clampedMonth = newYear === currentYear && month > currentMonth ? currentMonth : month;
       if (clampedMonth !== month) setMonth(clampedMonth);
-      emitChange(clampedMonth, newYear);
+      emitChange(toDateString(clampedMonth, newYear));
     }
   };
 
   const selectMonth = (m) => {
     if (year === currentYear && m > currentMonth) return;
     setMonth(m);
-    emitChange(m, year);
+    setIsPresent(false);
+    emitChange(toDateString(m, year));
+    setOpen(false);
+  };
+
+  const selectPresent = () => {
+    setIsPresent(true);
+    setMonth(null);
+    emitChange("present");
     setOpen(false);
   };
 
   const isMonthDisabled = (m) => year === currentYear && m > currentMonth;
 
-  const displayText = month !== null
+  const displayText = isPresent
+    ? "Present"
+    : month !== null
     ? `${MONTHS[month]} ${year}`
     : "";
 
@@ -95,6 +106,22 @@ const MonthYearPicker = ({ value, onChange, name, label }) => {
 
       {open && (
         <div className="absolute z-30 mt-1 bg-white border border-gray-200 rounded-lg shadow-lg p-3" style={{ width: "220px" }}>
+          {/* Present option */}
+          {showPresent && (
+            <button
+              type="button"
+              onClick={selectPresent}
+              className={`w-full mb-2 py-1.5 text-xs rounded font-medium transition-colors ${
+                isPresent
+                  ? "text-white"
+                  : "text-gray-600 border border-gray-200 hover:bg-gray-50"
+              }`}
+              style={isPresent ? { backgroundColor: "var(--cv-primary)" } : undefined}
+            >
+              Present
+            </button>
+          )}
+
           {/* Year row */}
           <div className="flex items-center justify-between mb-2">
             <button
@@ -130,12 +157,12 @@ const MonthYearPicker = ({ value, onChange, name, label }) => {
                 className={`py-1.5 text-xs rounded transition-colors ${
                   isMonthDisabled(i)
                     ? "text-gray-300 cursor-not-allowed"
-                    : month === i
+                    : month === i && !isPresent
                     ? "text-white font-semibold"
                     : "text-gray-700 hover:bg-gray-100"
                 }`}
                 style={
-                  month === i && !isMonthDisabled(i)
+                  month === i && !isPresent && !isMonthDisabled(i)
                     ? { backgroundColor: "var(--cv-primary)" }
                     : undefined
                 }
@@ -150,7 +177,8 @@ const MonthYearPicker = ({ value, onChange, name, label }) => {
             type="button"
             onClick={() => {
               setMonth(null);
-              onChange({ target: { name, value: "" } });
+              setIsPresent(false);
+              emitChange("");
               setOpen(false);
             }}
             className="w-full mt-2 text-xs text-gray-400 hover:text-gray-600 text-center"

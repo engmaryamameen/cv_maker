@@ -91,6 +91,7 @@ const Projects = () => {
                 name="endYear"
                 value={project.endYear}
                 onChange={(e) => handleProjects(e, index)}
+                showPresent
               />
             </div>
           </div>

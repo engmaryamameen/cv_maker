@@ -4,10 +4,15 @@ const DateRange = ({ startYear, endYear, id }) => {
     }
 
     const start = new Date(startYear);
-    const end = new Date(endYear);
+    const isPresent = endYear === "present";
+    const end = isPresent ? null : new Date(endYear);
+
+    const formatDate = (date) =>
+        date.toLocaleString('default', { month: 'short' }) + ', ' + date.getFullYear();
+
     return (
-        <p id={id} className="sub-content">
-            {start.toLocaleString('default', { month: 'short' })}, {start.getFullYear()} - {end != "Invalid Date" ? end.toLocaleString('default', { month: 'short' }) + ', ' + end.getFullYear() : 'Present'}
+        <p id={id} className="sub-content" style={{ whiteSpace: "nowrap" }}>
+            {formatDate(start)} - {isPresent ? 'Present' : (end && end != "Invalid Date" ? formatDate(end) : 'Present')}
         </p>
     );
 };
