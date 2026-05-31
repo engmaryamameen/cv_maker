@@ -16,7 +16,7 @@ import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../../context/ResumeContext";
 import dynamic from "next/dynamic";
 import Language from "./Language";
 import Certification from "./Certification";
