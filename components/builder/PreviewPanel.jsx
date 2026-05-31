@@ -177,7 +177,7 @@ const PreviewPanel = () => {
           )}
         />
         <DragDropContext onDragEnd={onDragEnd}>
-          <TemplateComponent resumeData={resumeData} />
+          <TemplateComponent resumeData={resumeData} setResumeData={setResumeData} />
         </DragDropContext>
       </A4Wrapper>
     </div>

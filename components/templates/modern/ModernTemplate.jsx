@@ -26,14 +26,14 @@ const socialIcons = [
 const ModernTemplate = ({ resumeData }) => {
   return (
     <>
-      {/* Header with colored accent bar */}
-      <div
-        className="px-4 py-3 rounded-md mb-3"
-        style={{ backgroundColor: "var(--cv-primary)" }}
-      >
+      {/* Header */}
+      <div className="mb-2">
         <div className="flex items-center gap-4">
           {resumeData.profilePicture && resumeData.profilePicture.length > 0 && (
-            <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-white flex-shrink-0">
+            <div
+              className="w-16 h-16 rounded-full overflow-hidden border-2 flex-shrink-0"
+              style={{ borderColor: "var(--cv-primary)" }}
+            >
               <Image
                 src={resumeData.profilePicture}
                 alt="profile"
@@ -44,219 +44,193 @@ const ModernTemplate = ({ resumeData }) => {
             </div>
           )}
           <div>
-            <h1 className="text-xl font-bold text-white">{resumeData.name}</h1>
-            <p className="text-sm text-white/80">{resumeData.position}</p>
+            <h1 className="text-2xl font-bold">{resumeData.name}</h1>
+            <p className="text-sm font-medium" style={{ color: "var(--cv-primary)" }}>
+              {resumeData.position}
+            </p>
           </div>
         </div>
-      </div>
 
-      {/* Contact row */}
-      <div className="flex flex-wrap gap-3 mb-2 text-xs text-gray-600">
-        {resumeData.contactInformation && (
-          <a href={`tel:${resumeData.contactInformation}`} className="inline-flex items-center gap-1">
-            <MdPhone className="text-gray-400" /> {resumeData.contactInformation}
-          </a>
-        )}
-        {resumeData.email && (
-          <a href={`mailto:${resumeData.email}`} className="inline-flex items-center gap-1">
-            <MdEmail className="text-gray-400" /> {resumeData.email}
-          </a>
-        )}
-        {resumeData.address && (
-          <span className="inline-flex items-center gap-1">
-            <MdLocationOn className="text-gray-400" /> {resumeData.address}
-          </span>
-        )}
-        {resumeData.socialMedia && resumeData.socialMedia.map((item, index) => (
-          <a
-            key={index}
-            href={`http://${item.link}`}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-1"
-            title={item.socialMedia}
-          >
-            {socialIcons.map((icon, i) => {
-              if (icon.name === item.socialMedia.toLowerCase()) {
-                return <span key={i} className="text-gray-400">{icon.icon}</span>;
-              }
-            })}
-            {item.link}
-          </a>
-        ))}
-      </div>
-
-      <hr className="mb-3" style={{ borderColor: "var(--cv-section-border)" }} />
-
-      {/* Two-column: main left, sidebar right */}
-      <div className="grid grid-cols-3 gap-5">
-
-        {/* Main content — left 2 cols */}
-        <div className="col-span-2 space-y-3">
-
-          {/* Summary */}
-          {resumeData.summary && resumeData.summary.length > 0 && (
-            <div>
-              <SectionTitle>Profile</SectionTitle>
-              <p className="text-xs leading-relaxed">{resumeData.summary}</p>
-            </div>
+        {/* Contact grid */}
+        <div className="grid grid-cols-2 gap-x-6 gap-y-0.5 mt-2 text-xs">
+          {resumeData.contactInformation && (
+            <a href={`tel:${resumeData.contactInformation}`} className="inline-flex items-center gap-1">
+              <span className="font-semibold" style={{ color: "var(--cv-primary)" }}>Phone</span> {resumeData.contactInformation}
+            </a>
           )}
-
-          {/* Work Experience */}
-          {resumeData.workExperience.length > 0 && (
-            <div>
-              <SectionTitle>Experience</SectionTitle>
-              {resumeData.workExperience.map((item, index) => (
-                <div key={index} className="mb-2">
-                  <div className="flex justify-between items-baseline">
-                    <p className="text-xs font-bold">{item.position}</p>
-                    <DateRange
-                      startYear={item.startYear}
-                      endYear={item.endYear}
-                      id={`mod-work-date-${index}`}
-                    />
-                  </div>
-                  <p className="text-xs" style={{ color: "var(--cv-primary)" }}>
-                    {item.company}
-                  </p>
-                  {item.description && (
-                    <p className="text-xs text-gray-600 mt-0.5">{item.description}</p>
-                  )}
-                  {typeof item.keyAchievements === "string" &&
-                    item.keyAchievements.length > 0 && (
-                      <ul className="list-disc ul-padding text-xs mt-0.5">
-                        {item.keyAchievements.split("\n").map((achievement, i) => (
-                          <li key={i}>
-                            <div
-                              dangerouslySetInnerHTML={{ __html: achievement }}
-                              contentEditable
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                </div>
-              ))}
-            </div>
+          {resumeData.socialMedia && resumeData.socialMedia.map((item, index) => (
+            <a
+              key={index}
+              href={`http://${item.link}`}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1"
+            >
+              <span className="font-semibold" style={{ color: "var(--cv-primary)" }}>{item.socialMedia}</span> {item.link}
+            </a>
+          ))}
+          {resumeData.email && (
+            <a href={`mailto:${resumeData.email}`} className="inline-flex items-center gap-1">
+              <span className="font-semibold" style={{ color: "var(--cv-primary)" }}>E-mail</span> {resumeData.email}
+            </a>
           )}
-
-          {/* Projects */}
-          {resumeData.projects.length > 0 && (
-            <div>
-              <SectionTitle>Projects</SectionTitle>
-              {resumeData.projects.map((item, index) => (
-                <div key={index} className="mb-2">
-                  <div className="flex justify-between items-baseline">
-                    <p className="text-xs font-bold">{item.name}</p>
-                    <DateRange
-                      startYear={item.startYear}
-                      endYear={item.endYear}
-                      id={`mod-proj-date-${index}`}
-                    />
-                  </div>
-                  {item.link && (
-                    <Link
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs"
-                      style={{ color: "var(--cv-primary)" }}
-                    >
-                      {item.link}
-                    </Link>
-                  )}
-                  {item.description && (
-                    <p className="text-xs text-gray-600 mt-0.5">{item.description}</p>
-                  )}
-                  {typeof item.keyAchievements === "string" &&
-                    item.keyAchievements.length > 0 && (
-                      <ul className="list-disc ul-padding text-xs mt-0.5">
-                        {item.keyAchievements.split("\n").map((achievement, i) => (
-                          <li key={i}>
-                            <div
-                              dangerouslySetInnerHTML={{ __html: achievement }}
-                              contentEditable
-                            />
-                          </li>
-                        ))}
-                      </ul>
-                    )}
-                </div>
-              ))}
-            </div>
+          {resumeData.address && (
+            <span className="inline-flex items-center gap-1">
+              <span className="font-semibold" style={{ color: "var(--cv-primary)" }}>Location</span> {resumeData.address}
+            </span>
           )}
         </div>
+      </div>
 
-        {/* Sidebar — right 1 col */}
-        <div className="col-span-1 space-y-3">
+      <hr style={{ borderColor: "var(--cv-section-border)" }} />
 
-          {/* Skills */}
-          {resumeData.skills.length > 0 && (
-            <div>
-              <SectionTitle>Skills</SectionTitle>
-              {resumeData.skills.map(
-                (skillGroup, index) =>
-                  skillGroup.skills.length > 0 && (
-                    <div key={index} className="mb-1.5">
-                      <p className="text-xs font-semibold">{skillGroup.title}</p>
-                      <div className="flex flex-wrap gap-1 mt-0.5">
-                        {skillGroup.skills.map((skill, i) => (
-                          <span
-                            key={i}
-                            className="text-xs px-1.5 py-0.5 rounded"
-                            style={{
-                              backgroundColor: "color-mix(in srgb, var(--cv-primary) 10%, transparent)",
-                              color: "var(--cv-primary)",
-                            }}
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )
-              )}
+      {/* Summary */}
+      {resumeData.summary && resumeData.summary.length > 0 && (
+        <div className="my-2">
+          <p className="text-xs leading-relaxed text-gray-700">{resumeData.summary}</p>
+        </div>
+      )}
+
+      {/* Work Experience */}
+      {resumeData.workExperience.length > 0 && (
+        <div className="mb-2">
+          <SectionTitle>Experience</SectionTitle>
+          {resumeData.workExperience.map((item, index) => (
+            <div key={index} className="grid grid-cols-[90px_1fr] gap-x-3 mb-2">
+              <div className="text-xs text-gray-500 pt-0.5">
+                <DateRange
+                  startYear={item.startYear}
+                  endYear={item.endYear}
+                  id={`mod-work-date-${index}`}
+                />
+              </div>
+              <div>
+                <p className="text-sm font-bold">{item.position}</p>
+                <p className="text-xs text-gray-500">{item.company}</p>
+                {item.description && (
+                  <p className="text-xs text-gray-600 mt-0.5">{item.description}</p>
+                )}
+                {typeof item.keyAchievements === "string" &&
+                  item.keyAchievements.length > 0 && (
+                    <ul className="list-disc ul-padding text-xs mt-0.5">
+                      {item.keyAchievements.split("\n").map((achievement, i) => (
+                        <li key={i}>
+                          <div
+                            dangerouslySetInnerHTML={{ __html: achievement }}
+                            contentEditable
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
             </div>
-          )}
+          ))}
+        </div>
+      )}
 
-          {/* Education */}
-          {resumeData.education.length > 0 && (
-            <div>
-              <SectionTitle>Education</SectionTitle>
-              {resumeData.education.map((item, index) => (
-                <div key={index} className="mb-1.5">
-                  <p className="text-xs font-bold">{item.degree}</p>
-                  <p className="text-xs text-gray-600">{item.school}</p>
-                  <DateRange
-                    startYear={item.startYear}
-                    endYear={item.endYear}
-                    id={`mod-edu-date-${index}`}
-                  />
-                </div>
-              ))}
+      {/* Education */}
+      {resumeData.education.length > 0 && (
+        <div className="mb-2">
+          <SectionTitle>Education</SectionTitle>
+          {resumeData.education.map((item, index) => (
+            <div key={index} className="grid grid-cols-[90px_1fr] gap-x-3 mb-1">
+              <div className="text-xs text-gray-500 pt-0.5">
+                <DateRange
+                  startYear={item.startYear}
+                  endYear={item.endYear}
+                  id={`mod-edu-date-${index}`}
+                />
+              </div>
+              <div>
+                <p className="text-xs font-bold">{item.degree}, {item.school}</p>
+              </div>
             </div>
-          )}
+          ))}
+        </div>
+      )}
 
-          {/* Languages */}
-          {resumeData.languages.length > 0 && (
-            <div>
-              <SectionTitle>Languages</SectionTitle>
-              <p className="text-xs">{resumeData.languages.join(", ")}</p>
+      {/* Projects */}
+      {resumeData.projects.length > 0 && (
+        <div className="mb-2">
+          <SectionTitle>Projects</SectionTitle>
+          {resumeData.projects.map((item, index) => (
+            <div key={index} className="grid grid-cols-[90px_1fr] gap-x-3 mb-2">
+              <div className="text-xs text-gray-500 pt-0.5">
+                <DateRange
+                  startYear={item.startYear}
+                  endYear={item.endYear}
+                  id={`mod-proj-date-${index}`}
+                />
+              </div>
+              <div>
+                <p className="text-xs font-bold">{item.name}</p>
+                {item.link && (
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs"
+                    style={{ color: "var(--cv-primary)" }}
+                  >
+                    {item.link}
+                  </Link>
+                )}
+                {item.description && (
+                  <p className="text-xs text-gray-600 mt-0.5">{item.description}</p>
+                )}
+                {typeof item.keyAchievements === "string" &&
+                  item.keyAchievements.length > 0 && (
+                    <ul className="list-disc ul-padding text-xs mt-0.5">
+                      {item.keyAchievements.split("\n").map((achievement, i) => (
+                        <li key={i}>
+                          <div
+                            dangerouslySetInnerHTML={{ __html: achievement }}
+                            contentEditable
+                          />
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+              </div>
             </div>
-          )}
+          ))}
+        </div>
+      )}
 
-          {/* Certifications */}
-          {resumeData.certifications.length > 0 && (
-            <div>
-              <SectionTitle>Certifications</SectionTitle>
-              <ul className="list-disc ul-padding text-xs">
-                {resumeData.certifications.map((cert, index) => (
-                  <li key={index}>{cert}</li>
-                ))}
-              </ul>
-            </div>
+      {/* Skills */}
+      {resumeData.skills.length > 0 && (
+        <div className="mb-2">
+          <SectionTitle>Skills</SectionTitle>
+          {resumeData.skills.map(
+            (skillGroup, index) =>
+              skillGroup.skills.length > 0 && (
+                <p key={index} className="text-xs mb-0.5">
+                  <span className="font-bold">{skillGroup.title}</span> — {skillGroup.skills.join(", ")}
+                </p>
+              )
           )}
         </div>
+      )}
+
+      {/* Languages & Certifications */}
+      <div className="grid grid-cols-2 gap-4">
+        {resumeData.languages.length > 0 && (
+          <div>
+            <SectionTitle>Languages</SectionTitle>
+            <p className="text-xs">{resumeData.languages.join(", ")}</p>
+          </div>
+        )}
+        {resumeData.certifications.length > 0 && (
+          <div>
+            <SectionTitle>Certifications</SectionTitle>
+            <ul className="list-disc ul-padding text-xs">
+              {resumeData.certifications.map((cert, index) => (
+                <li key={index}>{cert}</li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     </>
   );
@@ -264,8 +238,8 @@ const ModernTemplate = ({ resumeData }) => {
 
 const SectionTitle = ({ children }) => (
   <h2
-    className="text-xs font-bold uppercase tracking-widest mb-1 pb-0.5 border-b"
-    style={{ color: "var(--cv-primary)", borderColor: "var(--cv-section-border)" }}
+    className="text-base font-bold mb-1"
+    style={{ color: "var(--cv-primary)" }}
   >
     {children}
   </h2>

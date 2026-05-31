@@ -14,6 +14,7 @@ import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 import Certification from "../components/form/certification";
 import { ResumeContext, ResumeProvider } from "../context/ResumeContext";
+import { themes, DEFAULT_THEME } from "../components/templates/themes";
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
@@ -29,11 +30,12 @@ export default function Builder(props) {
 }
 
 function BuilderContent() {
-  const { resumeData } = useContext(ResumeContext);
+  const { resumeData, activeTheme } = useContext(ResumeContext);
   const [formClose, setFormClose] = useState(false);
+  const theme = themes[activeTheme] || themes[DEFAULT_THEME];
 
   return (
-    <>
+    <div style={{ "--cv-primary": theme.colors.primary }}>
       <Meta
         title="ATSResume | Get hired with an ATS-optimized resume"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
@@ -41,7 +43,7 @@ function BuilderContent() {
       />
       <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
         {!formClose && (
-          <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
+          <form className="p-4 bg-gray-100 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
             <LoadUnload />
             <PersonalInformation />
             <SocialMedia />
@@ -60,6 +62,6 @@ function BuilderContent() {
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
       <Print />
-    </>
+    </div>
   );
 }

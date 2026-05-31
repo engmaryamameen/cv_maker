@@ -17,11 +17,12 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-fuchsia-600;
+        background-color: var(--cv-primary, #a21caf);
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        @apply bg-fuchsia-700;
+        background-color: var(--cv-primary, #a21caf);
+        filter: brightness(0.85);
     }
 
     textarea, input:focus {
@@ -43,7 +44,15 @@
     }
 
     .profileInput{
-        @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
+        @apply pi file:border-0 file:text-white file:rounded-sm file:px-3 file:py-1 file:cursor-pointer;
+    }
+
+    .profileInput::file-selector-button {
+        background-color: var(--cv-primary, #a21caf);
+    }
+
+    .themed-btn{
+        background-color: var(--cv-primary);
     }
 
     .flex-col-gap-2{
@@ -59,7 +68,8 @@
     }
 
     .input-title{
-        @apply text-[1rem] text-white font-semibold;
+        @apply text-[1rem] font-semibold;
+        color: var(--cv-primary);
     }
 
     .f-col{
