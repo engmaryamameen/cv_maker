@@ -12,12 +12,15 @@ const ThemeSelector = () => {
           key={id}
           onClick={() => setActiveTheme(id)}
           title={theme.name}
-          className={`w-5 h-5 rounded-full border-2 transition-transform ${
-            activeTheme === id
-              ? "border-gray-800 scale-125"
-              : "border-gray-300 hover:scale-110"
-          }`}
-          style={{ backgroundColor: theme.colors.primary }}
+          className="rounded-full transition-all"
+          style={{
+            width: activeTheme === id ? "22px" : "18px",
+            height: activeTheme === id ? "22px" : "18px",
+            backgroundColor: theme.colors.primary,
+            border: activeTheme === id
+              ? "2.5px solid #1f2937"
+              : "2px solid #e5e7eb",
+          }}
         />
       ))}
     </div>

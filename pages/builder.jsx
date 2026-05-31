@@ -11,15 +11,9 @@ import PersonalInformation from "../components/form/PersonalInformation";
 import Summary from "../components/form/Summary";
 import Projects from "../components/form/Projects";
 import Education from "../components/form/Education";
-import dynamic from "next/dynamic";
 import Certification from "../components/form/certification";
 import { ResumeContext, ResumeProvider } from "../context/ResumeContext";
 import { themes, DEFAULT_THEME } from "../components/templates/themes";
-
-// server side rendering false
-const Print = dynamic(() => import("../components/utility/WinPrint"), {
-  ssr: false,
-});
 
 export default function Builder(props) {
   return (
@@ -39,16 +33,16 @@ function BuilderContent() {
   }, [theme.colors.primary]);
 
   return (
-    <div style={{ "--cv-primary": theme.colors.primary }}>
+    <div className="min-h-screen bg-gray-50" style={{ "--cv-primary": theme.colors.primary }}>
       <Meta
-        title="ATSResume | Get hired with an ATS-optimized resume"
-        description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes."
-        keywords="ATS-friendly, Resume optimization, resume builder, free resume builder, resume maker"
+        title="CV Maker | Build your professional resume"
+        description="Create a professional, ATS-friendly resume in minutes with multiple templates, themes, and fonts."
+        keywords="resume builder, CV maker, ATS resume, free resume builder, professional resume templates"
       />
       <BuilderHeader />
-      <div className="f-col gap-4 md:flex-row justify-evenly max-w-[1600px] md:mx-auto md:h-[calc(100vh-52px)] mt-2 mb-16">
+      <div className="flex gap-0 max-w-[1600px] mx-auto" style={{ height: "calc(100vh - 58px)" }}>
         {!formClose && (
-          <form className="p-4 bg-gray-100 exclude-print md:max-w-[40%] md:h-full md:overflow-y-scroll">
+          <form className="w-[500px] flex-shrink-0 exclude-print bg-white border-r border-gray-200 overflow-y-auto p-4 space-y-1">
             <PersonalInformation />
             <SocialMedia />
             <Summary />
@@ -60,12 +54,14 @@ function BuilderContent() {
             ))}
             <Language />
             <Certification />
+            <div className="h-16" />
           </form>
         )}
-        <PreviewPanel />
+        <div className="flex-1 min-w-0">
+          <PreviewPanel />
+        </div>
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
-      <Print />
     </div>
   );
 }
