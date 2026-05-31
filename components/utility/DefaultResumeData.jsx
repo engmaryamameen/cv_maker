@@ -8,15 +8,15 @@ const DefaultResumeData = {
   socialMedia: [
     {
       socialMedia: "Github",
-      link: "github.com/janesmith",
+      link: "github.com/your-username",
     },
     {
       socialMedia: "LinkedIn",
-      link: "linkedin.com/in/janesmith",
+      link: "linkedin.com/in/your-profile",
     },
     {
       socialMedia: "Website",
-      link: "janesmith.dev",
+      link: "your-website.com",
     },
   ],
   summary: "Passionate Full Stack Developer with expertise in modern web technologies. Skilled in creating responsive, user-friendly applications using React, Node.js, and various frontend/backend technologies. Committed to writing clean, maintainable code and delivering exceptional user experiences.",
