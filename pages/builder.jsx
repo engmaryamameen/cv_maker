@@ -46,7 +46,7 @@ function BuilderContent() {
         keywords="ATS-friendly, Resume optimization, resume builder, free resume builder, resume maker"
       />
       <BuilderHeader />
-      <div className="f-col gap-4 md:flex-row justify-evenly max-w-[1600px] md:mx-auto md:h-[calc(100vh-52px)] mt-2 pb-16">
+      <div className="f-col gap-4 md:flex-row justify-evenly max-w-[1600px] md:mx-auto md:h-[calc(100vh-52px)] mt-2 mb-16">
         {!formClose && (
           <form className="p-4 bg-gray-100 exclude-print md:max-w-[40%] md:h-full md:overflow-y-scroll">
             <PersonalInformation />

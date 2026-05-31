@@ -7,7 +7,7 @@ const DefaultResumeData = {
   profilePicture: "",
   socialMedia: [
     {
-      socialMedia: "Github",
+      socialMedia: "GitHub",
       link: "github.com/your-username",
     },
     {
@@ -15,15 +15,15 @@ const DefaultResumeData = {
       link: "linkedin.com/in/your-profile",
     },
     {
-      socialMedia: "Website",
+      socialMedia: "Portfolio",
       link: "your-website.com",
     },
   ],
-  summary: "Passionate Full Stack Developer with expertise in modern web technologies. Skilled in creating responsive, user-friendly applications using React, Node.js, and various frontend/backend technologies. Committed to writing clean, maintainable code and delivering exceptional user experiences.",
+  summary: "Full Stack Developer with experience building scalable web applications using React, Node.js, and modern backend technologies. Strong background in API development, database optimization, responsive UI, and cross-functional collaboration.",
   education: [
     {
-      school: "Bachelor of Computer Science",
-      degree: "State University of Technology",
+      degree: "Bachelor of Computer Science",
+      school: "State University of Technology",
       startYear: "2018-09-01",
       endYear: "2022-06-30",
     },
@@ -32,15 +32,15 @@ const DefaultResumeData = {
     {
       company: "Acme Technologies",
       position: "Full Stack Developer",
-      description: "A leading technology company specializing in web and mobile application development.",
-      keyAchievements: "Developed and maintained 5+ web applications using React, Node.js, and MongoDB.\nImproved application performance by 40% through code optimization and database query improvements.\nCollaborated with cross-functional teams to deliver high-quality software solutions.\nImplemented responsive design principles ensuring applications work seamlessly across all devices.\nMentored junior developers and conducted code reviews to maintain code quality standards.",
+      description: "Built and maintained full-stack web applications using React, Node.js, and MongoDB.",
+      keyAchievements: "Developed and maintained 5+ production web applications using React, Node.js, and MongoDB.\nImproved application performance by 40% through frontend optimization and database query improvements.\nCollaborated with product, design, and QA teams to deliver responsive user-facing features.\nImplemented CI/CD pipelines reducing deployment time by 60%.\nMentored junior developers and reviewed pull requests to improve code quality.",
       startYear: "2023-01-15",
       endYear: "2024-06-30",
     },
     {
       company: "Starter Labs",
       position: "Frontend Developer",
-      description: "A startup focused on creating innovative digital solutions for modern businesses.",
+      description: "Developed innovative digital solutions for modern businesses in an agile startup environment.",
       keyAchievements: "Built responsive user interfaces using React.js and modern CSS frameworks.\nReduced page load times by 30% through optimization techniques.\nWorked closely with UX/UI designers to implement pixel-perfect designs.\nIntegrated REST APIs and implemented state management using Redux.\nParticipated in agile development processes and sprint planning.",
       startYear: "2022-06-01",
       endYear: "2022-12-31",

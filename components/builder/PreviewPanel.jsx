@@ -121,7 +121,7 @@ const PreviewPanel = () => {
         </Head>
       )}
       <div
-        className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 pb-20 md:overflow-y-scroll md:h-[calc(100vh-52px)]"
+        className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6  md:overflow-y-scroll md:h-[calc(100vh-52px)]"
         style={{ ...themeVars, fontFamily: font.family }}
       >
       <A4Wrapper>

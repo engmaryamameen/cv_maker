@@ -9,7 +9,7 @@ const A4Wrapper = ({ children }) => {
   };
 
   return (
-    <div className="w-8.5in" onLoad={alertA4Size}>
+    <div className="w-8.5in mb-16" onLoad={alertA4Size}>
       {children}
     </div>
   );
