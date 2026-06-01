@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../../context/ResumeContext";
 import FormButton from "./FormButton";
 
 const Certification = () => {

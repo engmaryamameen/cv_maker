@@ -16,7 +16,7 @@ import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../../context/ResumeContext";
 import dynamic from "next/dynamic";
 import Language from "./Language";
 import Certification from "./Certification";
@@ -139,7 +139,7 @@ const Preview = () => {
   useKeyboardShortcut('u', true, toggleUnderline);
 
   return (
-    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
+    <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print  md:overflow-y-scroll md:h-screen">
       <A4PageWrapper>
         <HighlightMenu
           styles={{
