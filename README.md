@@ -1,192 +1,141 @@
-# 🚀 CV Maker - Professional Resume Builder
+![CV Maker Banner](screenshots/banner.png)
 
-A modern, responsive resume builder that helps job seekers create professional, ATS-friendly resumes in minutes. Built with Next.js and React, this application provides an intuitive interface for crafting compelling resumes that stand out to employers and pass through Applicant Tracking Systems (ATS).
+# CV Maker
 
-## ✨ Features
+A modern resume builder that helps you create professional, ATS-friendly resumes with live preview, multiple templates, theme and font customization, and one-click PDF export.
 
-- **📝 Real-time Preview**: See your resume updates instantly as you type
-- **🎨 Professional Templates**: Clean, modern design that looks great on any device
-- **📱 Responsive Design**: Works perfectly on desktop, tablet, and mobile
-- **💾 Save & Load**: Save your progress and load it later
-- **📄 PDF Export**: Download your resume as a professional PDF
-- **🔍 ATS Optimized**: Designed to pass through Applicant Tracking Systems
-- **⚡ Fast & Lightweight**: Built with modern technologies for optimal performance
+**Live Demo**: <a href="https://cv-maker-eight-red.vercel.app/" target="_blank">cv-maker-eight-red.vercel.app</a>
 
-## 🌐 Live Demo
+---
 
-**[https://cv-maker-eight-red.vercel.app/](https://cv-maker-eight-red.vercel.app/)**
+## Features
 
-![CV Maker Demo](https://user-images.githubusercontent.com/61316762/218017511-fbbaa7da-6154-449f-9e46-8de45b0e6c29.png)
-![image](https://user-images.githubusercontent.com/61316762/218017511-fbbaa7da-6154-449f-9e46-8de45b0e6c29.png)
+- **Live Preview** — See resume changes instantly as you type
+- **3 Templates** — Classic, Minimal, and Modern layouts
+- **5 Color Themes** — Fuchsia, Blue, Emerald, Slate, Rose
+- **11 Fonts** — System and Google Fonts including Inter, Poppins, Merriweather, and more
+- **Month/Year Date Picker** — Custom resume-friendly date selector with Present option
+- **Inline Editing** — Edit achievement bullets directly in the preview
+- **Drag and Drop** — Reorder work experience, projects, and skills sections
+- **Rich Text Toolbar** — Bold, italic, underline, font size, and alignment
+- **Save/Load Data** — Export and import resume data as JSON
+- **PDF Export** — Download your resume as a clean A4 PDF
+- **ATS Optimized** — Real text, standard sections, no hidden content
 
-## 🛠️ Built With
+## Tech Stack
 
-- **[Next.js](https://nextjs.org/)** - React framework for production
-- **[React](https://reactjs.org/)** - JavaScript library for building user interfaces
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[React Beautiful DnD](https://github.com/atlassian/react-beautiful-dnd)** - Drag and drop functionality
-- **[React Icons](https://react-icons.github.io/react-icons/)** - Popular icon library
+- **Next.js** — React framework
+- **React** — UI components
+- **Tailwind CSS** — Utility-first styling
+- **React Beautiful DnD** — Drag and drop
+- **React Icons** — Icon library
+- **React Highlight Menu** — Text formatting toolbar
 
-## 📋 Resume Sections
+## Templates
 
-The CV Maker includes all essential sections for a comprehensive resume:
+| Template | Description |
+|----------|-------------|
+| **Classic** | Professional single-column layout with centered header, pipe-separated contact, and bottom-bordered section titles |
+| **Minimal** | Clean, spacious layout with accent line, dot-separated contact, uppercase letter-spaced headings, and extra whitespace |
+| **Modern** | Premium layout with left-bar accent header, two-column contact grid, date-left work entries, and bordered skill tags |
 
-- **👤 Personal Information** - Name, contact details, and profile picture
-- **📱 Social Media** - GitHub, LinkedIn, and other professional links
-- **📝 Summary** - Professional summary and career objectives
-- **🎓 Education** - Academic background and qualifications
-- **💼 Work Experience** - Professional experience with achievements
-- **🚀 Projects** - Portfolio projects and technical work
-- **⚙️ Technical Skills** - Programming languages and technologies
-- **🤝 Soft Skills** - Interpersonal and professional skills
-- **🌍 Languages** - Language proficiencies
-- **📚 Additional Skills** - Other relevant skills and competencies
-- **🏆 Certifications** - Professional certifications and achievements
+All templates support theme colors, font switching, and PDF export.
 
-## 🚀 Getting Started
+## ATS Score
+
+Resumes built with CV Maker are optimized for Applicant Tracking Systems. Check your resume score at <a href="https://www.resumego.net/resume-checker/" target="_blank">ResumeGo ATS Checker</a>.
+
+![ATS Score — 100](screenshots/ats-score.png)
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (version 14 or higher)
-- npm or yarn package manager
+- Node.js 14+
+- npm, yarn, or pnpm
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/maryamameen34/cv_maker.git
-   cd cv_maker
-   ```
+```bash
+git clone https://github.com/engmaryamameen/cv_maker.git
+cd cv_maker
+npm install
+npm run dev
+```
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-3. **Run the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
+## Available Scripts
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
 
-## 📦 Available Scripts
+## Project Structure
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+```
+cv_maker/
+├── components/
+│   ├── builder/          # BuilderHeader, PreviewPanel, TemplateSelector, ThemeSelector, FontSelector
+│   ├── form/             # PersonalInformation, WorkExperience, Education, Projects, Skills, etc.
+│   ├── preview/          # Legacy preview components
+│   ├── templates/
+│   │   ├── classic/      # ClassicTemplate
+│   │   ├── minimal/      # MinimalTemplate
+│   │   ├── modern/       # ModernTemplate
+│   │   ├── shared/       # Shared section components and A4Wrapper
+│   │   ├── registry.js   # Template registry
+│   │   ├── themes.js     # Color themes
+│   │   └── fonts.js      # Font options
+│   └── utility/          # DefaultResumeData, DateRange, WinPrint
+├── context/              # ResumeContext (state management)
+├── hooks/                # useKeyboardShortcut
+├── pages/                # Next.js pages (builder, index)
+├── styles/               # Global CSS with Tailwind
+└── public/               # Static assets
+```
 
-## Personal Information
+## PDF Export
 
-- Name
-- Email
-- Phone
-- Address
-- Profile Picture
+The browser preview and exported PDF are designed to match exactly. When you click **Export PDF** or press `Ctrl+P`:
 
-## Social Media
+- Only the selected resume template is exported
+- Builder controls, header toolbar, and form panel are hidden
+- Theme colors and fonts are preserved
+- A4 page size with 10mm margins is applied
+- Background colors print correctly via `print-color-adjust: exact`
 
-- Social Media Links
+## Future Improvements
 
-## Summary
+- Additional resume templates
+- Custom section ordering
+- Resume scoring and ATS analysis
+- Cover letter builder
+- User accounts and cloud storage
+- Mobile-responsive builder layout
 
-- Summary
+## Contributing
 
-## Education
-
-- Degree
-- Institute
-- Start Date
-- End Date
-
-## Work Experience
-
-- Company
-- Designation
-- Description
-- Key Achievements
-- Start Date
-- End Date
-
-Description optional
-
-## Projects
-
-- Project Name
-- Description
-- key Achievements
-- Start Date
-- End Date
-
-Description optional
-
-## Technical Skills
-
-- Technical Skills
-
-## Soft Skills
-
-- Soft Skills
-
-## Languages
-
-- Languages
-
-## Additional Skills
-
-- Additional Skills
-
-## Certifications
-
-- Certifications
-
-## How to Add Key Achievements
-
-Key achievements are the most important part of your resume. 
-
-- Add key achievements to your resume to make it more attractive and increase your chances of getting noticed by employers.
-- Add key achievements to your work experience and projects.
-- Add key achievements to your resume by clicking on the new line.
-
-## PageSpeed Insights
-
-![image](https://user-images.githubusercontent.com/61316762/218244257-e85172dc-46bd-4f4b-b9c2-9bd17c693cc8.png)
-
-![image](https://user-images.githubusercontent.com/61316762/218244267-c46f5d02-b742-4b4c-ba7e-ae1bfb1e04d4.png)
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-### How to Contribute
+Contributions are welcome. Please open an issue first to discuss what you would like to change, then submit a pull request.
 
 1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m 'Add your feature'`)
+4. Push to the branch (`git push origin feature/your-feature`)
 5. Open a Pull Request
 
-## 📄 License
+## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) file for details.
 
-## 👩‍💻 Author
+## Author
 
 **Maryam Ameen**
 
-- **GitHub**: [@maryamameen34](https://github.com/maryamameen34)
-- **LinkedIn**: [Maryam Ameen](https://linkedin.com/in/maryam-ameen)
-- **Email**: maryamshehzadi768@gmail.com
-
-## 🙏 Acknowledgments
-
-- Built with Next.js and React
-- Styled with Tailwind CSS
-- Icons from React Icons
-- Drag and drop functionality from React Beautiful DnD
+- <a href="https://github.com/engmaryamameen" target="_blank">GitHub</a>
+- <a href="https://www.linkedin.com/in/maryam-ameen" target="_blank">LinkedIn</a>
+- <a href="mailto:eng.maryamameen@gmail.com">eng.maryamameen@gmail.com</a>
+- <a href="https://www.upwork.com/freelancers/~maryamameen" target="_blank">Upwork</a>
