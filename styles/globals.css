@@ -17,11 +17,12 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-fuchsia-600;
+        background-color: var(--cv-primary, #a21caf);
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        @apply bg-fuchsia-700;
+        background-color: var(--cv-primary, #a21caf);
+        filter: brightness(0.85);
     }
 
     textarea, input:focus {
@@ -39,11 +40,19 @@
 
 @layer components{
     .pi{
-        @apply p-2 mb-2 text-black bg-white rounded text-[0.9rem];
+        @apply p-2 mb-2 text-black bg-gray-50 border border-gray-200 rounded-md text-[0.85rem] focus:border-gray-400 transition-colors;
     }
 
     .profileInput{
-        @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
+        @apply pi file:border-0 file:text-white file:rounded-sm file:px-3 file:py-1 file:cursor-pointer;
+    }
+
+    .profileInput::file-selector-button {
+        background-color: var(--cv-primary, #a21caf);
+    }
+
+    .themed-btn{
+        background-color: var(--cv-primary);
     }
 
     .flex-col-gap-2{
@@ -55,11 +64,26 @@
     }
 
     .other-input{
-        @apply p-2 mb-2 text-black bg-white rounded focus:placeholder-transparent;
+        @apply p-2 mb-2 text-black bg-gray-50 border border-gray-200 rounded-md focus:placeholder-transparent focus:border-gray-400 transition-colors text-[0.85rem];
+    }
+
+    input[type="date"] {
+        cursor: pointer;
+        flex: 1;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        filter: invert(0.4);
     }
 
     .input-title{
-        @apply text-[1rem] text-white font-semibold;
+        @apply text-[0.85rem] font-semibold mb-1.5 mt-3;
+        color: var(--cv-primary);
+    }
+
+    .field-label{
+        @apply text-[0.7rem] font-medium text-gray-400 mb-0.5 block;
     }
 
     .f-col{
@@ -115,7 +139,22 @@
     font-weight: 700 !important;
 }
 
+@keyframes highlightMenuFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+[data-floating-ui-portal] > div {
+    opacity: 0;
+    animation: highlightMenuFadeIn 0.15s ease-in 0.05s forwards;
+}
+
 @media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
     .exclude-print {
         display: none;
     }
@@ -134,7 +173,7 @@
     }
 
     .preview::after {
-        content: "Created using https://atsresume.vercel.app/";
+        content: "Created using https://cv-maker-eight-red.vercel.app/";
         position: fixed;
         bottom: 0;
         right: 0;

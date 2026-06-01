@@ -1,6 +1,7 @@
 import FormButton from "./FormButton";
+import MonthYearPicker from "./MonthYearPicker";
 import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import { ResumeContext } from "../../context/ResumeContext";
 
 const Projects = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -17,7 +18,7 @@ const Projects = () => {
       projects: [
         ...resumeData.projects,
         {
-          title: "",
+          name: "",
           link: "",
           description: "",
           keyAchievements: "",
@@ -39,57 +40,60 @@ const Projects = () => {
     <div className="flex-col-gap-2">
       <h2 className="input-title">Projects</h2>
       {resumeData.projects.map((project, index) => (
-        <div key={index} className="f-col">
+        <div key={index} className="f-col border border-gray-200 rounded-lg p-3 bg-gray-50/50">
+          <label className="field-label">Project Name</label>
           <input
             type="text"
-            placeholder="Project Name"
+            placeholder="TaskForge"
             name="name"
             className="w-full other-input"
             value={project.name}
             onChange={(e) => handleProjects(e, index)}
           />
+          <label className="field-label">Link</label>
           <input
             type="text"
-            placeholder="Link"
+            placeholder="github.com/username/project"
             name="link"
             className="w-full other-input"
             value={project.link}
             onChange={(e) => handleProjects(e, index)}
           />
+          <label className="field-label">Description</label>
           <textarea
-            type="text"
-            placeholder="Description"
+            placeholder="Brief project description..."
             name="description"
-            className="w-full other-input h-32"
+            className="w-full other-input h-20"
             value={project.description}
             maxLength="250"
             onChange={(e) => handleProjects(e, index)}
           />
+          <label className="field-label">Key Achievements (one per line)</label>
           <textarea
-            type="text"
-            placeholder="Key Achievements"
+            placeholder="Built task creation and status tracking..."
             name="keyAchievements"
-            className="w-full other-input h-40"
+            className="w-full other-input h-32"
             value={project.keyAchievements}
             onChange={(e) => handleProjects(e, index)}
           />
-          <div className="flex-wrap-gap-2">
-            <input
-              type="date"
-              placeholder="Start Year"
-              name="startYear"
-              className="other-input"
-              value={project.startYear}
-              onChange={(e) => handleProjects(e, index)}
-            />
-            <input
-              type="date"
-              placeholder="End Year"
-              name="endYear"
-              className="other-input"
-              value={project.endYear}
-              onChange={(e) => handleProjects(e, index)}
-            />
+          <div className="flex gap-2">
+            <div className="flex-1">
+              <MonthYearPicker
+                label="Start Date"
+                name="startYear"
+                value={project.startYear}
+                onChange={(e) => handleProjects(e, index)}
+              />
+            </div>
+            <div className="flex-1">
+              <MonthYearPicker
+                label="End Date"
+                name="endYear"
+                value={project.endYear}
+                onChange={(e) => handleProjects(e, index)}
+                showPresent
+              />
+            </div>
           </div>
         </div>
       ))}
